@@ -11,4 +11,12 @@ class AppModule()
     @Provides
     @Singleton
     fun provideApplication(app : App): Context = app
+
+    @Provides
+    @Singleton
+    fun funCat(): Cat {
+        return Cat()
+    }
+
+
 }

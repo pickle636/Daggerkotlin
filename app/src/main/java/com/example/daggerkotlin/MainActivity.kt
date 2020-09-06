@@ -12,7 +12,10 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var app :Context
-
+    @Inject
+    lateinit var cat: Cat
+    @Inject
+    lateinit var doc: Doc
     private lateinit var pref:SharedPreferences
     private val APP_PREFERENCES = "mySettings"
     private val App_PREFERENCES_COUNTER = " counter"
@@ -22,7 +25,8 @@ class MainActivity : AppCompatActivity() {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        println(cat.name)
+        println(doc.cat.name)
         title = "SharedPreferences"
         pref = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
 
