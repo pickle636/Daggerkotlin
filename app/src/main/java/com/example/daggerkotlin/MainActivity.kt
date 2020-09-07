@@ -12,8 +12,8 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var app :Context
+//    @Inject
+//    lateinit var app :Context
     @Inject
     lateinit var cat: Cat
     @Inject
