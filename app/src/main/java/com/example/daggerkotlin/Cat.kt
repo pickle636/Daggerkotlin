@@ -1,4 +1,6 @@
 package com.example.daggerkotlin
 
-data class Cat(var name: String = "Barsik") {
+import javax.inject.Inject
+
+data class Cat @Inject constructor(val name: String = "barsik") {
 }

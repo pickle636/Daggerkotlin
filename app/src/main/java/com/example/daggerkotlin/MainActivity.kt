@@ -4,10 +4,12 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import dagger.android.AndroidInjection
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     @Inject
@@ -15,18 +17,18 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var cat: Cat
     @Inject
-    lateinit var doc: Doc
+    lateinit var dog: Dog
     private lateinit var pref:SharedPreferences
     private val APP_PREFERENCES = "mySettings"
     private val App_PREFERENCES_COUNTER = " counter"
     private var counter = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
+        //AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         println(cat.name)
-        println(doc.cat.name)
+        println(dog.cat.name)
         title = "SharedPreferences"
         pref = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
 
@@ -51,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             // Получаем число из настроек
             counter = pref.getInt(App_PREFERENCES_COUNTER,0);
             // Выводим на экран данные из настроек
-            text.setText("$counter")
+            text.text = "$counter"
         }
 
     }
